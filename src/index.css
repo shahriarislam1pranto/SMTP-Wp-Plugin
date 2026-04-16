@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-accent: #A1FA4C;
+  --color-sidebar-bg: #0F172A;
+  --color-bg-main: #F8FAFC;
+  --color-border-light: #E2E8F0;
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #64748B;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-primary font-sans antialiased;
+  }
+}
+
+.sidebar-nav-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-sm font-medium;
+}
+
+.sidebar-nav-item.active {
+  @apply bg-accent/10 text-accent;
+}
+
+.sidebar-nav-item:not(.active) {
+  @apply text-white/70 hover:bg-white/5 hover:text-white;
+}
+
+.card-base {
+  @apply bg-white border border-border-light rounded-2xl p-6 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-accent text-sidebar-bg font-bold py-3 px-6 rounded-lg transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-accent/20;
+}
+
+.btn-secondary {
+  @apply bg-slate-100 text-text-primary border border-border-light font-semibold py-2.5 px-4 rounded-lg transition-all hover:bg-slate-200 active:scale-[0.98];
+}
+
+.status-pill {
+  @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800;
+}
+
+.status-dot {
+  @apply w-2 h-2 rounded-full bg-emerald-500;
+}
+
+.tab-group {
+  @apply flex gap-2 bg-slate-100 p-1 rounded-xl;
+}
+
+.tab-item {
+  @apply flex-1 text-center py-2 text-xs font-bold rounded-lg transition-all cursor-pointer;
+}
+
+.tab-item.active {
+  @apply bg-white text-sidebar-bg shadow-sm;
+}
+
+.tab-item:not(.active) {
+  @apply text-text-secondary hover:text-text-primary;
+}
+
+.notice-card {
+  @apply bg-sidebar-bg text-white rounded-2xl p-5 flex justify-between items-center relative overflow-hidden border-l-4 border-accent shadow-xl;
+}
+
+.key-display {
+  @apply bg-slate-50 border border-border-light border-dashed rounded-lg px-3 py-2 font-mono text-xs flex justify-between items-center;
+}
